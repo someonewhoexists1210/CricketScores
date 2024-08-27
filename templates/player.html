@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ player.name }} - Player Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='player.css') }}">
+</head>
+<body>
+    <div class="player-card">
+        <img src="{{ player.playerImg }}" alt="{{ player.name }}" class="player-img">
+        <h1>{{ player.name }}</h1>
+        <p><strong>Country:</strong> {{ player.country }}</p>
+        <p><strong>Date of Birth:</strong> {{ player.dateOfBirth[:10] }}</p>
+        <p><strong>Place of Birth:</strong> {{ player.placeOfBirth }}</p>
+        <p><strong>Role:</strong> {{ player.role }}</p>
+        <p><strong>Batting Style:</strong> {{ player.battingStyle }}</p>
+        <p><strong>Bowling Style:</strong> {{ player.bowlingStyle }}</p>
+    </div>
+</body>
+</html>

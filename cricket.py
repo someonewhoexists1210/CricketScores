@@ -20,5 +20,24 @@ def home():
 
         return render_template('index.html', data=tosend)
 
+@app.route('/player', methods=['GET'])
+def player_stats():
+    id = 0
+    player = request.args.get('name')
+    if player:
+        response = requests.get(f'https://api.cricapi.com/v1/players?apikey={API_KEY}&search={player}')
+        if response.status_code == 200:
+            result = response.json()
+            id = result['data'][0]['id']
+    if id:
+        response = requests.get(f'https://api.cricapi.com/v1/players_info?apikey={API_KEY}&offset=0&id={id}')
+        if response.status_code == 200:
+            result = response.json()
+            return render_template('player.html', player=result['data'])
+        
+    return jsonify({'error': 'Player not found'})
+
+
+            
 if __name__ == '__main__':
     app.run(debug=True)
