@@ -1,5 +1,5 @@
 import flask, requests, json, os
-from flask import request, jsonify
+from flask import request, jsonify, render_template
 from dotenv import load_dotenv
 
 app = flask.Flask(__name__)
@@ -18,7 +18,7 @@ def home():
             if i['matchStarted'] and not i['matchEnded']:
                 tosend.append(i)
 
-        return jsonify(tosend)
+        return render_template('index.html', data=tosend)
 
 if __name__ == '__main__':
     app.run(debug=True)
