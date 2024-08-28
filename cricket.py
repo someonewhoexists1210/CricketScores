@@ -37,7 +37,15 @@ def player_stats():
         
     return jsonify({'error': 'Player not found'})
 
+@app.route('/match/<id>', methods=['GET'])
+def match(id):
+    if id:
+        response = requests.get(f'https://api.cricapi.com/v1/match_info?apikey={API_KEY}&id={id}')
+        if response.status_code == 200:
+            result = response.json()
+            return render_template('match.html', match=result['data'])
+        
+    return jsonify({'error': 'Match not found'})
 
-            
 if __name__ == '__main__':
     app.run(debug=True)

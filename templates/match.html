@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ match.name }} - Match Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="match-card">
+        <h1>{{ match.name }}</h1>
+        <p><strong>Date:</strong> {{ match.date }}</p>
+        <p><strong>Time (GMT):</strong> {{ match.dateTimeGMT[11:16] }}</p>
+        <p><strong>Venue:</strong> {{ match.venue }}</p>
+        <p><strong>Match Type:</strong> {{ match.matchType | upper }}</p>
+        <p><strong>Status:</strong> {{ match.status }}</p>
+
+        <div class="teams">
+            {% for team in match.teamInfo %}
+            <div class="team">
+                <img src="{{ team.img }}" alt="{{ team.name }}">
+                <p>{{ team.name }} ({{ team.shortname }})</p>
+            </div>
+            {% endfor %}
+        </div>
+
+        <h2>Score</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Inning</th>
+                    <th>Runs</th>
+                    <th>Wickets</th>
+                    <th>Overs</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for score in match.score %}
+                <tr>
+                    <td>{{ score.inning }}</td>
+                    <td>{{ score.r }}</td>
+                    <td>{{ score.w }}</td>
+                    <td>{{ score.o }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

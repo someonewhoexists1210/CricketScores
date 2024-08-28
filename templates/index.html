@@ -9,27 +9,25 @@
 <body>
     <h1>Cricket Matches</h1>
     {% for match in data %}
-        <div class="match-container">
+        <div class="match-container" data-id="{{ match.id }}">
             <div class="match-header">
                 {% for team in match.teamInfo %}
                     <img src="{{ team.img }}" alt="{{ team.name }} Logo" class="team-img">
                 {% endfor %}
                 <h2>{{ match.name }}</h2>
             </div>
-            <div class="match-info">
-                <p><strong>Date:</strong> {{ match.date }}</p>
-                <p><strong>Venue:</strong> {{ match.venue }}</p>
-                <p><strong>Status:</strong> {{ match.status }}</p>
-                {% if match.score %}
-                    <div class="score">
-                        <p><strong>Scores:</strong></p>
-                        {% for score in match.score %}
-                            <p>{{ score.inning }}: {{ score.r }}/{{ score.w }} in {{ score.o }} overs</p>
-                        {% endfor %}
-                    </div>
-                {% endif %}
-            </div>
         </div>
     {% endfor %}
+
+    <script>
+        const matchContainers = document.querySelectorAll('.match-container');
+        matchContainers.forEach((matchContainer, index) => {
+            matchContainer.addEventListener('click', () => {
+                const id = matchContainer.getAttribute('data-id');
+                window.location.href = `/match/${id}`;
+            });
+        });
+    </script>
+    
 </body>
 </html>
