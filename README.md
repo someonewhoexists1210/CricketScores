@@ -26,8 +26,9 @@ You are welcome to contribute. Install this app on your local device make change
 ### Installation
 To run the website locally, follow these steps:
 
-1. Install Dependencies: Ensure you have the required Python packages installed by running `pip install -r requirements.txt`.
-2. Set Up Environment Variables: Create a `.env` file in the project root and add API key from CricAPI.
-3. Start flask with `python app.py`.
-4.  Visit `http://127.0.0.1:5000` in your web browser.
+1. Clone repo
+2. Install Dependencies: Ensure you have the required Python packages installed by running `pip install -r requirements.txt`.
+3. Set Up Environment Variables: Create a `.env` file in the project root and add API key from CricAPI.
+4. Start flask with `python app.py`.
+5.  Visit `http://127.0.0.1:5000` in your web browser.
 
