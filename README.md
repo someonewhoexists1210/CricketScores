@@ -20,6 +20,9 @@ This is a simple web application that provides real-time cricket match updates a
 ## Hosted
 This website is hosted live at https://cricket.someonewhoexists.hackclub.app
 
+## Screenshot
+![alt text](image.png)
+
 ## Contributing
 You are welcome to contribute. Install this app on your local device make changes and push
 
