@@ -5,8 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ match.name }} - Match Details</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='nav.css') }}">
+
 </head>
 <body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/playersearch">Player</a></li>
+        </ul>
+    </nav>
     <div class="match-card">
         <h1>{{ match.name }}</h1>
         <p><strong>Date:</strong> {{ match.date }}</p>

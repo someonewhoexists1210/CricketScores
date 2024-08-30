@@ -19,6 +19,10 @@ def check_limit():
             return render_template('limit.html')
         cache.cache[ip] += 1
 
+@app.route('/playersearch', methods=['GET'])
+def playerformat():
+    return render_template('pform.html')
+
 @app.route('/', methods=['GET'])
 def home():
     response = requests.get(f'https://api.cricapi.com/v1/currentMatches?apikey={API_KEY}&offset=0')

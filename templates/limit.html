@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Limit Reached</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='nav.css') }}">
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -55,6 +56,12 @@
     </style>
 </head>
 <body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/playersearch">Player</a></li>
+        </ul>
+    </nav>
     <div class="container">
         <h1>Limit Reached</h1>
         <p>You have reached your usage limit. Please try again later or contact support for assistance.</p>

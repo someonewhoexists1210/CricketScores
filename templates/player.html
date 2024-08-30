@@ -5,8 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ player.name }} - Player Details</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='player.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='nav.css') }}">
 </head>
 <body>
+    <header>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/playersearch">Player</a></li>
+        </ul>
+    </nav>
+    </header>
     <div class="player-card">
         <img src="{{ player.playerImg }}" alt="{{ player.name }}" class="player-img">
         <h1>{{ player.name }}</h1>

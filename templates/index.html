@@ -5,8 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cricket Matches</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='nav.css') }}">
+
 </head>
 <body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/playersearch">Player</a></li>
+        </ul>
+    </nav>
     <h1>Cricket Matches</h1>
     {% for match in data %}
         <div class="match-container" data-id="{{ match.id }}">
