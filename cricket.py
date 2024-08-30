@@ -1,4 +1,4 @@
-import flask, requests, json, os
+import flask, requests, os
 from flask import request, jsonify, render_template
 from dotenv import load_dotenv
 from flask_caching import Cache
@@ -64,6 +64,6 @@ def match(id):
     return jsonify({'error': 'Match not found'})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5647)
 
 
