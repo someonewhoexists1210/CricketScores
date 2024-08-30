@@ -1,11 +1,23 @@
 import flask, requests, json, os
 from flask import request, jsonify, render_template
 from dotenv import load_dotenv
+from flask_caching import Cache
 
 app = flask.Flask(__name__)
+cache = Cache(app, config={'CACHE_TYPE': 'simple'})
 
 load_dotenv()
 API_KEY = os.getenv('API_KEY')
+
+@app.route('/lim')
+def check_limit():
+    ip = request.remote_addr
+    if ip not in cache.cache:
+        cache.cache[ip] = 1
+    else:
+        if cache.cache[ip] >= 5:
+            return render_template('limit.html')
+        cache.cache[ip] += 1
 
 @app.route('/', methods=['GET'])
 def home():
@@ -49,3 +61,5 @@ def match(id):
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+
