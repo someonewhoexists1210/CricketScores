@@ -9,7 +9,7 @@ This is a simple web application that provides real-time cricket match updates a
 - Search for Players: A dedicated page allows users to search for specific cricket players by name. After submitting a search query, users receive detailed statistics and information about the player, including recent performance data.
 
 ### Match Details
-- In-Depth Match Information: Users can view detailed information about specific cricket matches. This includes comprehensive data such as team compositions, scores, and other critical match-related information.
+- In-Depth Match Information: Users can view detailed information about specific cricket matches by clicking match at home. This includes comprehensive data such as team compositions, scores, and other critical match-related information.
 
 ### Request Limiting
 - User Access Control: The application limits the number of requests a user can make from a single IP address. If a user exceeds the set limit, they are redirected to a page informing them that they have reached their request limit.
